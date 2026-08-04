@@ -1,2 +1,4 @@
 # claude-desktop-projects
-Instructions AI to automatically install and set up Cascadia Console with Cascadia Harness
+Instructions for AI to automate installation and set up of Cascadia Console with Cascadia Harness
+
+Copyright Blake Rogers 2026 All Rights Reserved 
