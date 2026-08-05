@@ -2,11 +2,9 @@
 
 (Do not modify this file)
 
-## Step 1: Read cascadia README
+## Step 1: Read only step --
 
-Read `cascadia/README.md` to understand Cascadia setup.
-
-Key points from the README:
+ Key points from the Cascadia README:
 
 - This repo is for Cascadia, which generates context documents (Requirements.md, Strategy.md, Architecture.md, and System_Instructions.md -- filenames are in uppercase) for Claude code to build node.js applications. It is meant to work with the cascadia-harness-node applications, and writes to context-docs/workflow/ directory in the cascadia-harness-node, and also reads an architecture_template.md which will be dropped into a templates directory. 
 - Default build uses `ANTHROPIC_API_KEY`.
@@ -45,16 +43,35 @@ ANTHROPIC_MODEL=claude-opus-4-8
 ```
 
 Note: the `ANTHROPIC_API_KEY` value is unique per developer and must
-never be logged in this file.
+never be logged in the ClaudeLog.txt log file or displayed in chat.
 
-Note: The user can edit the .env file manually to change the anthropic_model, or request Claude Code to do so.
+Note: The user can also optionally edit the .env file manually to change the anthropic_model. 
 
-## Step 3: Fill in ANTHROPIC_API_KEY in cascadia/.env
 
-Request the `ANTHROPIC_API_KEY` value from the developer via chat.
+## Step 3: STOP — request ANTHROPIC_API_KEY (MANDATORY BLOCKING GATE)
 
-The developer will supply it as input after you request it; write the value into
-`cascadia/.env` as the value for `ANTHROPIC_API_KEY=`
+⛔ DO NOT SKIP. DO NOT DEFER. DO NOT BUNDLE. DO NOT PROCEED WITHOUT IT. ⛔
+
+This step MUST be fully completed before ANY later step runs. It is a hard stop,
+not a background task. Do not run Step 4 — or anything after it — until the key
+has been received from the developer and written to the .env file.
+
+STOP here and send the developer ONE standalone chat message whose ONLY content
+is a request for their ANTHROPIC_API_KEY. Do not combine it with Node checks,
+npm output, status tables, smoke tests, or any other step's work. That request
+must be the entire message.
+
+Then WAIT for the developer's reply. Do not continue other steps "in the
+meantime," do not guess a value, do not invent a placeholder.
+
+Note: Alert the user that they can also optionally edit the .env file manually to enter the anthropic_key if they don't want to supply it in chat.
+
+When the developer supplies the key, write it verbatim into
+`cascadia/.env` as the value of `ANTHROPIC_API_KEY=`. Never echo the
+value back in chat and never write it to ClaudeLog.txt.
+
+Confirm the key is present in `.env`. ONLY THEN continue to Step 4.
+
 
 
 ## Step 4: Setup Cascadia context docs and templates in Cascadia Harness application 

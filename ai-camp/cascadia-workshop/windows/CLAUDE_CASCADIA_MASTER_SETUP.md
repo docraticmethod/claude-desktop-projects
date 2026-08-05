@@ -1,4 +1,4 @@
-#CASCADIA_MASTER_SETUP.md 
+#CASCADIA_MASTER_SETUP.md (Windows)
 
 ## Do not modify this file 
 
@@ -14,7 +14,22 @@ performed after the prior step is confirmed complete.
 
 Log file is ClaudeLog.txt 
 
-Log each complete step in log file with a terse summary note (one or two short sentences). Include a starting timestamp before you begin, and an ending timestamp when you are finished with all tasks. 
+Log each completed step to ClaudeLog.txt with a terse one- or two-sentence
+summary note. EVERY log entry — the run START marker, each completed step, and
+the run END marker — MUST begin with a full timestamp containing BOTH date AND
+time of day to the second, in 24-hour local time. Format: `YYYY-MM-DD HH:MM:SS`.
+
+Do NOT hand-type the timestamp and do NOT reuse the date from your context —
+your context may carry only a coarse date with no clock, which is why a real
+timestamp must be read from the system immediately before writing each entry:
+
+    PowerShell:  Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    bash:        date "+%Y-%m-%d %H:%M:%S"
+
+Write a timestamped START entry before Step 1, a timestamped entry after each
+completed step, and a timestamped END entry after the final task.
+
+Include the Time zone. Example: In San Francisco local time zone is Pacific / Los Angeles (PDT/PST). 
 
 ## Step 1: Clone the two source repositories
 
@@ -32,7 +47,7 @@ from here, so do not clone them elsewhere.
 
 Commands to run (from the `cascadia-workshop/` directory):
 
-```bash
+```powershell
 git clone https://github.com/docraticmethod/cascadia.git
 git clone https://github.com/docraticmethod/cascadia-harness-node.git
 ```
