@@ -1,0 +1,5 @@
+#CLAUDE.md
+
+
+Read CLAUDE_CASCADIA_MASTER_SETUP.md
+
